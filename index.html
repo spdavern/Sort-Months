@@ -5,19 +5,19 @@
 	<title>This is a Test</title>
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/main.css">
+	<script type="text/javascript" src="./scripts/app.js"></script>
 </head>
 <body>
 	<div class="container">
 		<h1>Adder/Subtractor</h1>
 		<div class="inputs">
-			<ul>
-				<li>X = <input type="number" name="X"></li>
-				<li>Y = <input type="number" name="Y"></li>
-				<li>
-					<button type="Button">+</button>
-					<button type="Button">-</button>
-				</li>
-			</ul>
+			X = <input ID = "X" type="number" name="Xinput" placeholder="Enter an Integer" onkeypress = "checkInput('X', this.value)"><br>
+			Y = <input ID = "Y" type="number" name="Yinput" placeholder="Enter an Integer" onkeypress = "checkInput('Y', this.value)"><br>
+			<input type="button" value="+" onclick="updateAnswer("+")">
+			<input type="button" value="-" onclick="updateAnswer("-")"><br>
+		</div>
+		<div class="result">
+			The Result
 		</div>
 	</div>
 </body>

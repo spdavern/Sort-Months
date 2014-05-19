@@ -1,6 +1,7 @@
 body {
-  background-color: white;
+  background-color: tan;
   font-family: "Comic Sans MS", serif;
+  font-size: large;
 }
 
 h1 {
@@ -8,21 +9,20 @@ h1 {
   font-size: 43px;
   margin-bottom: 15px;
 }
-
-h2 {
-  font-size: 24px;
-}
 .container {
   border-top: thin solid black;
   border-bottom: thin solid black;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.40);
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px 65px;
 }
-.inputs ul li {
-  padding: 2px
+.inputs {
+  padding: 2px;
+}
+.result {
+  padding: 10px;
 }
 /*
 * {
