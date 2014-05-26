@@ -5,19 +5,20 @@
 	<title>This is a Test</title>
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/main.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./scripts/app.js"></script>
 </head>
 <body>
 	<div class="container">
 		<h1>Adder/Subtractor</h1>
 		<div class="inputs">
-			X = <input ID = "X" type="number" name="Xinput" placeholder="Enter an Integer" onkeypress = "checkInput('X', this.value)"><br>
-			Y = <input ID = "Y" type="number" name="Yinput" placeholder="Enter an Integer" onkeypress = "checkInput('Y', this.value)"><br>
-			<input type="button" value="+" onclick="updateAnswer("+")">
-			<input type="button" value="-" onclick="updateAnswer("-")"><br>
+			X = <input class="numberInputs" id="X" placeholder="Enter an Integer" autofocus ><span class="err" id='XError'></span><br>
+			Y = <input class="numberInputs" id="Y" placeholder="Enter an Integer"><span class="err" id='YError'></span><br>
+			<input type="button" value="+">
+			<input type="button" value="-"><br>
 		</div>
 		<div class="result">
-			The Result
+			X minus / plus Y is Z
 		</div>
 	</div>
 </body>
