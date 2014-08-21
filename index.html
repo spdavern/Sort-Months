@@ -1,25 +1,15 @@
-<!doctype html>
-<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>This is a Test</title>
-	<link rel="stylesheet" href="./css/reset.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 	<link rel="stylesheet" href="./css/main.css">
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./scripts/app.js"></script>
 </head>
-<body>
-	<div class="container">
-		<h1>Adder/Subtractor</h1>
-		<div class="inputs">
-			X = <input class="numberInputs" id="X" placeholder="Enter an Integer" autofocus ><span class="err" id='XError'></span><br>
-			Y = <input class="numberInputs" id="Y" placeholder="Enter an Integer"><span class="err" id='YError'></span><br>
-			<input type="button" value="+">
-			<input type="button" value="-"><br>
-		</div>
-		<div class="result">
-			X minus / plus Y is Z
-		</div>
-	</div>
+<body ng-app="myApp">
+  <h1>Challenge One</h1>
+  <div ng-controller="myCtrl">
+    <div ng-repeat="month in months | orderBy: 'ordinal'" class="base-class {{month.season}}">
+      <h2>{{month.english}}</h2>
+      <p>French word: {{month.french}}</p>
+      <p>Number of Days: {{month.days}}</p>
+    </div>
+  </div>
 </body>
-</html>

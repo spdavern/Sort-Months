@@ -1,66 +1,78 @@
-var X = NaN;
-var Y = NaN;
-var operator = "";
-var resultText;
-
-$(document).ready(function(){
-	/* Validate and process number inputs. */
-	$(".numberInputs").change(function() {
-		var inputID = $(this).attr("id");
-		var entry = $(this).val();
-		if(isInteger(entry)) {
-			/* Clear entry error message, if any. */
-			$("#"+inputID+"Error").text("");
-			/* Record the entry. */
-			if (entry.trim()=="") {
-				if (inputID=="X") {X = NaN} else {Y = NaN};
-			} else {
-				if (inputID=="X") {X = parseInt(entry,10)} else {Y = parseInt(entry,10)};
-			}
-		} else {
-			$("#"+inputID+"Error").text(" "+inputID + " must be an integer!");
-		};
-		/* Update the Result. */
-		updateResult();
-	});
-
-	/* Operator button functionality. */
-	$(':button').on('click', function() {
-		operator = $(this).val();
-		updateResult();
-	})
+angular.module('myApp', []).
+controller('myCtrl', function($scope) {
+   var months = [ 
+    {english: 'August',
+    french: 'Aout',
+    days: 31,
+    ordinal: 8,
+     season: 'summer'
+   },
+   {english: 'March',
+    french: 'Mars',
+    days: 31,
+    ordinal: 3,
+    season: 'spring'
+   },
+  {english: 'February',
+    french: 'Fevrier',
+    days: 28,
+    ordinal: 2,
+   season: 'winter'
+   },
+  {english: 'April',
+    french: 'Avril',
+    days: 30,
+    ordinal: 4,
+   season: 'spring'
+   },
+  {english: 'May',
+    french: 'Mai',
+    days: 31,
+    ordinal: 5,
+   season: 'spring'
+   },
+  {english: 'January',
+    french: 'Janvier',
+    days: 31,
+    ordinal: 1,
+   season: 'winter'
+   },
+  {english: 'September',
+    french: 'Septembre',
+    days: 30,
+    ordinal: 9,
+   season: 'fall'
+   },
+  {english: 'October',
+    french: 'Octobre',
+    days: 31,
+    ordinal: 10,
+   season: 'fall'
+   },
+  {english: 'November',
+    french: 'Novembre',
+    days: 30,
+    ordinal: 11,
+   season: 'fall'
+   },
+  {english: 'December',
+    french: 'Decembre',
+    days: 31,
+    ordinal: 12,
+   season: 'winter'
+   },
+  {english: 'June',
+    french: 'Juin',
+    days: 30,
+    ordinal: 6,
+   season: 'summer'
+   },
+  {english: 'July',
+    french: 'Juillet',
+    days: 31,
+    ordinal: 7,
+   season: 'summer'
+   }
+  ];  
+  $scope.months = months;
 });
-
-/* 	Function that evaluates if "value" is an integer.
-	Spaces are ignored. */
-function isInteger(value) {
-	var isInt = value.trim() == "";
-	if (!isInt) {
-		isInt = !isNaN(parseInt(value,10)) && (parseFloat(value,10) == parseInt(value,10))
-	};
-	return  isInt;
-};
-
-/* 	Build the result text string and update the DOM. */
-function updateResult() {
-	/* Rebuild the result text. */
-	if (isNaN(X)) {resultText = "X "} else {resultText = X + " "};
-	if (operator=="") {
-		resultText = resultText + "minus / plus";
-	} else {
-		if (operator=="+") {resultText = resultText + "plus"} else {resultText = resultText + "minus"};
-	}
-	if (isNaN(Y)) {resultText = resultText + " Y"} else {resultText = resultText + " " + Y};
-	resultText = resultText + " is ";
-	if (isNaN(X) || isNaN(Y) || operator == "") {
-		resultText = resultText + " ?";
-	} else {
-		var Z;
-		if (operator=="+") {Z = X + Y} else {Z = X - Y};
-		resultText = resultText + Z;
-	};
-
-	/* Update the DOM. */
-	$(".result").text(resultText);
-	return;
-};
